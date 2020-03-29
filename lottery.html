@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let rand = (min, max) => {
+            return Math.floor(Math.random() * (max - (min - 1))) + min;
+        }
+        let numB = rand(1, 8);
+        let numA = rand(1, 38);
+        var lottery = [];
+
+        while (lottery.length < 6) {
+            if (lottery.includes(numA) == true) {
+                numA = rand(1, 38);
+            } else {
+                lottery.push(numA);
+                console.log(lottery[lottery.length - 1]);
+            }
+            numA = rand(1, 38);
+        }
+        lottery.sort((a, b) => {
+            return a - b;
+        });
+
+        document.write("大樂透中獎號碼: " + lottery + "<br>");
+        document.write("特別獎號碼: " + numB);
+    </script>
+</body>
+
+</html>
